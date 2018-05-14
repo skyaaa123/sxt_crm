@@ -3,6 +3,7 @@ package com.shsxt.crm.controller;
 import com.shsxt.base.BaseController;
 import com.shsxt.crm.constants.CrmConstant;
 import com.shsxt.crm.model.ResultInfo;
+import com.shsxt.crm.po.Customer;
 import com.shsxt.crm.query.CustomerQuery;
 import com.shsxt.crm.service.CustomerService;
 import org.springframework.stereotype.Controller;
@@ -53,5 +54,15 @@ public class CustomerController extends BaseController {
     public ResultInfo addLossCustomers(){
         customerService.addLossCustomers();
         return success(CrmConstant.OPS_SUCCESS_MSG);
+    }
+
+
+    //添加或更新
+    @RequestMapping("addOrUpdateCustomer")
+    @ResponseBody
+    public ResultInfo addOrUpdateCustomer(Customer customer){
+        customerService.addOrUpdateCustomer(customer);
+        return success(CrmConstant.OPS_SUCCESS_MSG);
+
     }
 }
